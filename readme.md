@@ -9,15 +9,18 @@ A structure for referencing content in a document.
 ### String
 
 A reference can be a String, for example, 'Preface' is a string reference.
+String references cannot be incremented.
 
 ### Chapter
 
 A reference can be a chapter, for example, `2` would reference chapter 2 that
-might be found on page 20.
+might be found on page 20. The return value is always a string.
 
 ### Ref-Ref
 
-References such as `1-1` or `6-2-5` are "ref-ref" references.
+References such as `1-1` or `6-2-5` are "ref-ref" references. The digits after
+the last hyphen are incremented. Endashes and emdashes are replaced with
+hyphens.
 
 ## Usage
 
@@ -66,9 +69,8 @@ refs:
 ```
 
 ```javascript
-fs   = require('fs');
-var yaml = require('js-yaml');
-var ContentMap = require('@cfi-notebook/content-map').ContentMap;
+var path = require('path');
+var ContentMap = require('@cfi-notebook/content-map');
 
-var aGenericHandbook = new ContentMap(yaml.safeLoad(fs.readFileSync('a-generic-handbook.yml','utf8')));
+var aGenericHandbook = ContentMap.createFromYaml(path.resolve(__dirname,'a-generic-handbook.yml'));
 ```
