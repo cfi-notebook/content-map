@@ -1,0 +1,19 @@
+{
+  "name": "@cfi-notebook/content-map",
+  "version": "1.0.0",
+  "description": "A way to map content to page references in a document.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cfi-notebook/content-map.git"
+  },
+  "author": "Ryan Burnette <ryan.burnette@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cfi-notebook/content-map/issues"
+  },
+  "homepage": "https://github.com/cfi-notebook/content-map#readme"
+}
