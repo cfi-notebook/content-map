@@ -9,11 +9,14 @@ referencing sections or groups of sections in those documents.
 
 ### Document
 
-A single document which has a section map and sections that can be selected.
+A document is an object that has a title, slug, array of sections, and any
+other attributes you wish. It has a select function which can select a subset
+of sections.
 
 ### Library
 
-A group of documents which can be selected by their title or slug.
+A library is an object which has an array of documents and a selector that can
+both select documents and sections within a selected document.
 
 ### Section
 
@@ -23,7 +26,14 @@ found on pages `121` through `121`.
 
 ### Section Map
 
+The section map is the data structure which maps a ref such as `1-1` to a page
+number.
+
 ### Shorthand Reference
+
+A shorthand reference is a way of using a string to select one or more
+sections. For example, `1-1,1-2` would section sections `1-1` and `1-2`. See
+the usage examples for more detail.
 
 ## Reference Types
 
@@ -101,6 +111,21 @@ var document = ContentMap.create({
     'sync#1#50'
   ]
 });
+```
+
+### Create Library of Documents
+
+```javascript
+var library = ContentMap.createAll([
+  {
+    title: 'A Generic Handbook',
+    sections: ['sync#1#50']
+  },
+  {
+    title: 'Some Other Handbook',
+    sections: ['sync#1#50']
+  }
+]);
 ```
 
 ### Select Sections of a Document
