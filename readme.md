@@ -2,7 +2,28 @@
 
 ## Description
 
-A structure for referencing content in a document.
+Our solution for selecting documents from a library of documents and
+referencing sections or groups of sections in those documents.
+
+## Definitions
+
+### Document
+
+A single document which has a section map and sections that can be selected.
+
+### Library
+
+A group of documents which can be selected by their title or slug.
+
+### Section
+
+A group of pages that can be referenced by their ref. For example, ref `3`, or
+chapter 3, might be found on pages `54` through `69`, and ref `5-3-1` might be
+found on pages `121` through `121`.
+
+### Section Map
+
+### Shorthand Reference
 
 ## Reference Types
 
@@ -21,6 +42,13 @@ might be found on page 20. The return value is always a string.
 References such as `1-1` or `6-2-5` are "ref-ref" references. The digits after
 the last hyphen are incremented. Endashes and emdashes are replaced with
 hyphens.
+
+### Sync
+
+Sometimes a document has no section structure so just page numbers will be
+used.  A single shorthand reference of `sync` along with the first and last
+page is used to denote this situation. For example, `sync#1#56` would be used
+to sync the section map to pages `1` through `56`.
 
 ## Usage
 
