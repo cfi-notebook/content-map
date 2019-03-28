@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/cfi-notebook/content-map#readme",
   "dependencies": {
-    "js-yaml": "^3.13.0"
+    "js-yaml": "^3.13.0",
+    "lodash": "^4.17.11"
   },
   "devDependencies": {
     "jest": "^24.5.0"
