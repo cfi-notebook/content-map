@@ -92,6 +92,17 @@ var document = ContentMap.create({
 });
 ```
 
+### Create Document Using Sync
+
+```javascript
+var document = ContentMap.create({
+  title: 'A Generic Handbook',
+  sections: [
+    'sync#1#50'
+  ]
+});
+```
+
 ### Select Sections of a Document
 
 #### Single Section
