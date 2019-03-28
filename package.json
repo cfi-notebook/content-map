@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/cfi-notebook/content-map#readme",
   "dependencies": {
+    "@ryanburnette/slugify": "^1.0.0",
     "js-yaml": "^3.13.0",
     "lodash": "^4.17.11"
   },
