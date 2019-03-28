@@ -113,6 +113,13 @@ var document = ContentMap.create({
 });
 ```
 
+### Create Document from YAML
+
+```javascript
+var filePath = path.resolve(__dirname,'a-generic-handbook.yml');
+var document = ContentMap.createFromYaml(filePath);
+```
+
 ### Create Library of Documents
 
 ```javascript
@@ -126,6 +133,16 @@ var library = ContentMap.createAll([
     sections: ['sync#1#50']
   }
 ]);
+```
+
+### Create Library of Documents From YAML
+
+```javascript
+var filePaths = [
+  'a-generic-handbook.yml',
+  'some-other-handbook.yml'
+];
+var library = ContentMap.createAllFromYaml(filePaths);
 ```
 
 ### Select Sections of a Document
@@ -146,4 +163,16 @@ document.select('1-1,1-2'); // multiple sections separated by commas
 
 ```javascript
 document.select('1-1...1-2'); // series of section from/to separated by ...
+```
+
+### Select Document From Library
+
+```javascript
+var library.select('a-generic-handbook');
+```
+
+### Select Document From Library and Sections from Document
+
+```javascript
+var library.select('a-generic-handbook@1-1...1-2');
 ```
