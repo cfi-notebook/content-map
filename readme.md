@@ -9,11 +9,14 @@ referencing sections or groups of sections in those documents.
 
 ### Document
 
-A single document which has a section map and sections that can be selected.
+A document is an object that has a title, slug, array of sections, and any
+other attributes you wish. It has a select function which can select a subset
+of sections.
 
 ### Library
 
-A group of documents which can be selected by their title or slug.
+A library is an object which has an array of documents and a selector that can
+both select documents and sections within a selected document.
 
 ### Section
 
@@ -23,7 +26,14 @@ found on pages `121` through `121`.
 
 ### Section Map
 
+The section map is the data structure which maps a ref such as `1-1` to a page
+number.
+
 ### Shorthand Reference
+
+A shorthand reference is a way of using a string to select one or more
+sections. For example, `1-1,1-2` would section sections `1-1` and `1-2`. See
+the usage examples for more detail.
 
 ## Reference Types
 
@@ -52,53 +62,117 @@ be used to sync the section map to pages `1` through `56`.
 
 ## Usage
 
-Set up a document using a YAML file.
-
-```yaml
-# a-generic-handbook.yml
-title: A Generic Handbook
-refs:
-  - Preface#1
-  - 1-4#8
-  - 1-5#9
-  - 1-6#10
-  - 1-7#11
-  - 1-8#12
-  - 1-9#13
-  - 1-10#14
-  - 1-11#15
-  - 1-12#16
-  - 1-13#17
-  - 1-14#18
-  - 1-15#19
-  - 2-1#20
-  - 2-2#21
-  - 2-3#22
-  - 2-4#23
-  - 2-5#24
-  - 2-6#25
-  - 2-7#26
-  - 2-8#27
-  - 2-9#28
-  - 2-10#29
-  - 2-11#30
-  - 2-12#31
-  - 3-1#32
-  - 3-2#33
-  - 3-3#34
-  - 3-4#35
-  - 3-5#36
-  - 3-6#37
-  - 3-7#38
-  - 3-8#39
-  - 3-9#40
-  - 3-10#41
-  - Appendix#42
-```
+Include the library. Intended for use in Node, but it would work in the browser
+if consumed by something like Webpack to package and transpile via babel.
 
 ```javascript
-var path = require('path');
 var ContentMap = require('@cfi-notebook/content-map');
+```
 
-var aGenericHandbook = ContentMap.createFromYaml(path.resolve(__dirname,'a-generic-handbook.yml'));
+### Create Document from Object
+
+```javascript
+var document = ContentMap.create({
+  title: 'A Generic Handbook',
+  sections: [
+    {
+      ref: '1-1',
+      start: 1,
+      end: 1
+    },
+    {
+      ref: '1-2',
+      start: 2,
+      end: 2
+    }
+  ]
+});
+```
+
+### Create Document from Shorthand
+
+```javascript
+var document = ContentMap.create({
+  title: 'A Generic Handbook',
+  sections: [
+    '1-1#1',
+    '1-2#2',
+    '1-3#3#3' // last section must have a start and end
+  ]
+});
+```
+
+### Create Document Using Sync
+
+```javascript
+var document = ContentMap.create({
+  title: 'A Generic Handbook',
+  sections: [
+    'sync#1#50'
+  ]
+});
+```
+
+### Create Document from YAML
+
+```javascript
+var filePath = path.resolve(__dirname,'a-generic-handbook.yml');
+var document = ContentMap.createFromYaml(filePath);
+```
+
+### Create Library of Documents
+
+```javascript
+var library = ContentMap.createAll([
+  {
+    title: 'A Generic Handbook',
+    sections: ['sync#1#50']
+  },
+  {
+    title: 'Some Other Handbook',
+    sections: ['sync#1#50']
+  }
+]);
+```
+
+### Create Library of Documents From YAML
+
+```javascript
+var filePaths = [
+  'a-generic-handbook.yml',
+  'some-other-handbook.yml'
+];
+var library = ContentMap.createAllFromYaml(filePaths);
+```
+
+### Select Sections of a Document
+
+#### Single Section
+
+```javascript
+document.select('1-1');
+```
+
+#### Multiple Sections
+
+```javascript
+document.select('1-1,1-2'); // multiple sections separated by commas
+```
+
+#### Series of Sections
+
+```javascript
+document.select('1-1...1-2'); // series of section from/to separated by ...
+```
+
+### Select Document From Library
+
+```javascript
+var library.select('a-generic-handbook');
+```
+
+### Select Document From Library and Sections from Document
+
+```javascript
+var library.select('a-generic-handbook@1-1...1-2');
 ```
