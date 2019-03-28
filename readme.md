@@ -45,10 +45,10 @@ hyphens.
 
 ### Sync
 
-Sometimes a document has no section structure so just page numbers will be
-used.  A single shorthand reference of `sync` along with the first and last
-page is used to denote this situation. For example, `sync#1#56` would be used
-to sync the section map to pages `1` through `56`.
+Sometimes a document has no section structure so we will revert to using page
+numbers as refs. A single shorthand reference of `sync` along with the first
+and last page is used to denote this situation. For example, `sync#1#56` would
+be used to sync the section map to pages `1` through `56`.
 
 ## Usage
 
