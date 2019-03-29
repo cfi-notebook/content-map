@@ -35,6 +35,13 @@ A shorthand reference is a way of using a string to select one or more
 sections. For example, `1-1,1-2` would section sections `1-1` and `1-2`. See
 the usage examples for more detail.
 
+### Selection
+
+A selection is the returned object from the select function on a document. It
+returns an object with two attributes, the sections array of the selected
+sections refs, and the pages array with the page numbers of the selection in
+sequential order.
+
 ## Reference Types
 
 ### String
