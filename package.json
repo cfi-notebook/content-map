@@ -1,6 +1,6 @@
 {
   "name": "@cfi-notebook/content-map",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Our solution for selecting documents from a library of documents and referencing sections or groups of sections in those documents.",
   "main": "index.js",
   "scripts": {
