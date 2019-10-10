@@ -1,7 +1,7 @@
 {
   "name": "@cfi-notebook/content-map",
-  "version": "1.1.0",
-  "description": "Our solution for selecting documents from a library of documents and referencing sections or groups of sections in those documents.",
+  "version": "1.2.0",
+  "description": "A strategy for selecting documents from a library of documents and referencing sections or groups of sections.",
   "main": "index.js",
   "scripts": {
     "test": "jest"
@@ -10,18 +10,14 @@
     "type": "git",
     "url": "git+https://github.com/cfi-notebook/content-map.git"
   },
-  "author": "Ryan Burnette <ryan.burnette@gmail.com>",
+  "author": "Ryan Burnette <ryan.burnette@gmail.com> (https://ryanburnette.com)",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/cfi-notebook/content-map/issues"
-  },
-  "homepage": "https://github.com/cfi-notebook/content-map#readme",
   "devDependencies": {
     "jest": "^24.5.0"
   },
   "dependencies": {
     "@ryanburnette/slugify": "^1.0.0",
-    "js-yaml": "^3.13.0",
-    "lodash": "^4.17.11"
+    "js-yaml": "^3.13.1",
+    "lodash": "^4.17.15"
   }
 }

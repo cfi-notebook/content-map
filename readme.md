@@ -1,17 +1,18 @@
-# @cfi-notebook/content-map
+# [cfi-notebook/content-map](https://github.com/cfi-notebook/content-map)
 
-## Description
+[![repo](https://img.shields.io/badge/repository-Github-black.svg?style=flat-square)](https://github.com/cfi-notebook/content-map)
+[![npm](https://img.shields.io/badge/package-NPM-green.svg?style=flat-square)](https://www.npmjs.com/package/@cfi-notebook/content-map)
 
-Our solution for selecting documents from a library of documents and
-referencing sections or groups of sections in those documents.
+A strategy for selecting documents from a library of documents and referencing
+sections or groups of sections.
 
 ## Definitions
 
 ### Document
 
-A document is an object that has a title, slug, array of sections, and any
-other attributes you wish. It has a select function which can select a subset
-of sections.
+A document is an object that has a title, slug, array of sections, and any other
+attributes you wish. It has a select function which can select a subset of
+sections.
 
 ### Library
 
@@ -31,9 +32,9 @@ number.
 
 ### Shorthand Reference
 
-A shorthand reference is a way of using a string to select one or more
-sections. For example, `1-1,1-2` would section sections `1-1` and `1-2`. See
-the usage examples for more detail.
+A shorthand reference is a way of using a string to select one or more sections.
+For example, `1-1,1-2` would section sections `1-1` and `1-2`. See the usage
+examples for more detail.
 
 ### Selection
 
@@ -63,9 +64,9 @@ hyphens.
 ### Sync
 
 Sometimes a document has no section structure so we will revert to using page
-numbers as refs. A single shorthand reference of `sync` along with the first
-and last page is used to denote this situation. For example, `sync#1#56` would
-be used to sync the section map to pages `1` through `56`.
+numbers as refs. A single shorthand reference of `sync` along with the first and
+last page is used to denote this situation. For example, `sync#1#56` would be
+used to sync the section map to pages `1` through `56`.
 
 ## Usage
 
@@ -114,16 +115,14 @@ var document = ContentMap.create({
 ```javascript
 var document = ContentMap.create({
   title: 'A Generic Handbook',
-  sections: [
-    'sync#1#50'
-  ]
+  sections: ['sync#1#50']
 });
 ```
 
 ### Create Document from YAML
 
 ```javascript
-var filePath = path.resolve(__dirname,'a-generic-handbook.yml');
+var filePath = path.resolve(__dirname, 'a-generic-handbook.yml');
 var document = ContentMap.createFromYaml(filePath);
 ```
 
@@ -145,10 +144,7 @@ var library = ContentMap.createAll([
 ### Create Library of Documents From YAML
 
 ```javascript
-var filePaths = [
-  'a-generic-handbook.yml',
-  'some-other-handbook.yml'
-];
+var filePaths = ['a-generic-handbook.yml', 'some-other-handbook.yml'];
 var library = ContentMap.createAllFromYaml(filePaths);
 ```
 
